@@ -6,8 +6,8 @@
 //
 
 import React from 'react';
-// import Header from './header.js';
-// import Tweet from './tweet.js';
+import Header from './header';
+import Tweet from './tweet';
 
 export default React.createClass({
   getInitialState () {
@@ -31,13 +31,50 @@ export default React.createClass({
     };
   },
 
+  componentWillReceiveProps (nextProps) {
+    const currentTweetLength = this.props.tweet.text.length;
+    const nextTweetLength = nextProps.tweet.text.length;
+    const isNumberOfCharactersIncreasing = nextTweetLength > currentTweetLength;
+    let headerText = null;
+
+    // Set header text
+    if (isNumberOfCharactersIncreasing) {
+      headerText = "Number of characters is increasing";
+    } else {
+      headerText = "Latest images from Twitter";
+    }
+
+    // Update state
+    this.setState({
+      headerText: headerText,
+      numberOfCharactersIsIncreasing: isNumberOfCharactersIncreasing
+    });
+
+    // Increment global count
+    window.tempest.numberOfReceivedTweets++;
+  },
+
+  shouldComponentUpdate (nextProps, nextState) {
+    // Only update if the length is greater than 1
+    return (nextProps.tweet.text.length > 1);
+  },
+
+  componentDidUpdate (prevProps, prevState) {
+    window.tempest.numberOfDisplayedTweets++;
+  },
+
   componentWillUnmount () {
+    // Clean up global variable
     delete window.tempest;
   },
 
   render () {
     return(
       <article>
+        <Header text={this.state.headerText} />
+        <Tweet
+          tweet={this.props.tweet}
+          onImageClick={this.props.onAddTweet} />
       </article>
     );
   }

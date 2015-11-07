@@ -7,8 +7,8 @@
 
 import React from 'react';
 import SnapkiteClient from 'snapkite-stream-client';
-import StreamTweet from './stream-tweet.js';
-// import Header from './header.js';
+import StreamTweet from './stream-tweet';
+import Header from './header';
 
 export default React.createClass({
   getInitialState () {
@@ -46,7 +46,7 @@ export default React.createClass({
 
     // If there isn't, show a loading message
     return (
-      <div></div>
+      <Header text="Loading tweets..." />
     );
   }
 });
