@@ -6,8 +6,8 @@
 //
 
 import React from 'react';
-import Header from './header.js';
-import Tweet from './tweet.js';
+import Header from './header';
+import Tweet from './tweet';
 
 export default React.createClass({
   getInitialState () {
@@ -34,11 +34,11 @@ export default React.createClass({
   componentWillReceiveProps (nextProps) {
     const currentTweetLength = this.props.tweet.text.length;
     const nextTweetLength = nextProps.tweet.text.length;
-    const isNumberOfCharactersIncreasing = (nextTweetLength > currentTweetLength);
+    const isNumberOfCharactersIncreasing = nextTweetLength > currentTweetLength;
     let headerText = null;
 
     // Set header text
-    if (numberOfCharactersIsIncreasing) {
+    if (isNumberOfCharactersIncreasing) {
       headerText = "Number of characters is increasing";
     } else {
       headerText = "Latest images from Twitter";

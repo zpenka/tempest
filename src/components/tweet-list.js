@@ -6,7 +6,7 @@
 //
 
 import React from 'react';
-import Tweet from './tweet.js';
+import Tweet from './tweet';
 import postcss from '../postcss';
 
 export default React.createClass({

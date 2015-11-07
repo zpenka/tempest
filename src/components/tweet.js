@@ -6,7 +6,7 @@
 //
 
 import React from 'react';
-import postcss from '../postcss.js';
+import postcss from '../postcss';
 
 export default React.createClass({
   propTypes: {
@@ -20,9 +20,7 @@ export default React.createClass({
       if (! tweet.media) {
         return new Error("Tweet must have an image.");
       }
-    },
-
-    onImageClick: React.propTypes.func
+    }
   },
 
   handleImageClick () {

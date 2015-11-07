@@ -42,7 +42,7 @@ export default React.createClass({
     });
   },
 
-  setCollectionName () {
+  setCollectionName (name) {
     this.setState({
       name: name,
       isEditingName: false
@@ -71,7 +71,7 @@ export default React.createClass({
           label="Empty Collection"
           handleClick={this.props.onRemoveAllTweets} />
 
-        <CollectionExportsForm htmlMarkup={this.props.htmlMarkup} />
+        <CollectionExportForm htmlMarkup={this.props.htmlMarkup} />
       </div>
     );
   }

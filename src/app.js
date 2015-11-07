@@ -7,7 +7,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tempest from './components/tempest.js';
+import Tempest from './components/tempest';
 
 // Get mount point
 const el = document.getElementById('tempest');

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import Stream from './stream';
-// import Collection from './collection.js';
+import Collection from './collection';
 import {assign} from 'lodash';
 import postcss from '../postcss'
 
@@ -82,6 +82,10 @@ export default React.createClass({
           <Stream onAddTweet={this.addTweet} />
         </aside>
         <section style={styles.section}>
+          <Collection
+            tweets={this.state.collection}
+            onRemoveTweet={this.removeTweet}
+            onRemoveAllTweets={this.removeAllTweets} />
         </section>
       </main>
     );

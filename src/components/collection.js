@@ -15,7 +15,7 @@ export default React.createClass({
   createHTML () {
     // Create HTML tweet list
     const htmlString = ReactDOMServer.renderToStaticMarkup(
-      <TweetList tweet={this.props.tweets} />
+      <TweetList tweets={this.props.tweets} />
     );
 
     const htmlMarkup = {
