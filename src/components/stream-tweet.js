@@ -6,8 +6,8 @@
 //
 
 import React from 'react';
-// import Header from './header.js';
-// import Tweet from './tweet.js';
+import Header from './header.js';
+import Tweet from './tweet.js';
 
 export default React.createClass({
   getInitialState () {
@@ -71,6 +71,10 @@ export default React.createClass({
   render () {
     return(
       <article>
+        <Header text={this.state.headerText} />
+        <Tweet
+          tweet={this.props.tweet}
+          onImageClick={this.props.onAddTweet} />
       </article>
     );
   }
