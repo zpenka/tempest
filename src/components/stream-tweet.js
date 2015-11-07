@@ -31,7 +31,40 @@ export default React.createClass({
     };
   },
 
+  componentWillReceiveProps (nextProps) {
+    const currentTweetLength = this.props.tweet.text.length;
+    const nextTweetLength = nextProps.tweet.text.length;
+    const isNumberOfCharactersIncreasing = (nextTweetLength > currentTweetLength);
+    let headerText = null;
+
+    // Set header text
+    if (numberOfCharactersIsIncreasing) {
+      headerText = "Number of characters is increasing";
+    } else {
+      headerText = "Latest images from Twitter";
+    }
+
+    // Update state
+    this.setState({
+      headerText: headerText,
+      numberOfCharactersIsIncreasing: isNumberOfCharactersIncreasing
+    });
+
+    // Increment global count
+    window.tempest.numberOfReceivedTweets++;
+  },
+
+  shouldComponentUpdate (nextProps, nextState) {
+    // Only update if the length is greater than 1
+    return (nextProps.tweet.text.length > 1);
+  },
+
+  componentDidUpdate (prevProps, prevState) {
+    window.tempest.numberOfDisplayedTweets++;
+  },
+
   componentWillUnmount () {
+    // Clean up global variable
     delete window.tempest;
   },
 
