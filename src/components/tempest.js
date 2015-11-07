@@ -6,10 +6,10 @@
 //
 
 import React from 'react';
-import Stream from './stream.js';
+import Stream from './stream';
 // import Collection from './collection.js';
 import {assign} from 'lodash';
-import postcss from '../postcss.js'
+import postcss from '../postcss'
 
 export default React.createClass({
   getInitialState () {
