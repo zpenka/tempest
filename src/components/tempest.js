@@ -6,7 +6,7 @@
 //
 
 import React from 'react';
-// import Stream from './stream.js';
+import Stream from './stream.js';
 // import Collection from './collection.js';
 import {assign} from 'lodash';
 import postcss from '../postcss.js'
@@ -63,11 +63,12 @@ export default React.createClass({
       },
 
       aside: {
-        width: '30%',
+        width: '25%',
+        marginRight: '5%'
       },
 
       section: {
-        width: '30%',
+        width: '70%',
       }
     });
 
@@ -78,9 +79,10 @@ export default React.createClass({
     return (
       <main style={styles.main}>
         <aside style={styles.aside}>
+          <Stream onAddTweet={this.addTweet} />
         </aside>
-        <div style={styles.section}>
-        </div>
+        <section style={styles.section}>
+        </section>
       </main>
     );
   }
