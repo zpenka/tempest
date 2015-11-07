@@ -1,2 +1,3 @@
 node_modules
 build/tempest.js
+build/tempest.min.js
