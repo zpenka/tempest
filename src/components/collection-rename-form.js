@@ -67,7 +67,7 @@ export default React.createClass({
         verticalAlign: 'middle',
         height: '34px',
         padding: '6px 12px',
-        fontSize: '0.875rem',
+        fontSize: '1rem',
         lineHeight: '1.4285',
         color: '#555',
         backgroundColor: '#fff',
