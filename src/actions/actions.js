@@ -13,7 +13,7 @@ export default {
   receiveTweet(tweet) {
 
     const action = {
-      type: 'receive_tweet',
+      type: 'RECEIVE_TWEET',
       tweet: tweet
     };
 

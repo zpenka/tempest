@@ -40,7 +40,7 @@ const TweetStore = assign({}, EventEmitter.prototype, {
 // Register the store with the dispatcher
 TweetStore.dispatcherID = dispatcher.register((action) => {
   switch (action.type) {
-    case 'receive_tweet' :
+    case 'RECEIVE_TWEET' :
       setTweet(action.tweet);
       emitChange();
       break;
