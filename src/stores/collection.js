@@ -11,7 +11,7 @@ import {assign} from 'lodash';
 
 // Private
 const CHANGE_EVENT = 'change';
-const tweetCollection = {};
+let tweetCollection = {};
 let collectionName = 'new';
 
 function addTweetToCollection (tweet) {

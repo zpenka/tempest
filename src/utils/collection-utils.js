@@ -5,18 +5,17 @@
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
-function getNumberOfTweets(collection) {
-  var TweetUtils = require('./tweet-utils');
-  var listofCollectionIDs = TweetUtils.getListOfTweetIDs(collection);
+export default {
 
-  return listofCollectionIDs.length;
+  getNumberOfTweets(collection) {
+    var TweetUtils = require('./tweet-utils');
+    var listofCollectionIDs = TweetUtils.getListOfTweetIDs(collection);
+
+    return listofCollectionIDs.length;
+  },
+
+  isEmptyCollection(collection) {
+    return (getNumberOfTweets(collection) === 0);
+  }
+
 }
-
-function isEmptyCollection(collection) {
-  return (getNumberOfTweets(collection) === 0);
-}
-
-module.exports = {
-  getNumberOfTweets: getNumberOfTweets,
-  isEmptyCollection: isEmptyCollection
-};

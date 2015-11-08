@@ -10,12 +10,35 @@ import ReactDOMServer from 'react-dom/server';
 import CollectionControls from './collection-controls';
 import TweetList from './tweet-list';
 import Header from './header'
+import _ from '../utils/collection-utils';
+import CollectionStore from '../stores/collection';
 
 export default React.createClass({
+
+  getInitialState () {
+    return {
+      tweetCollection: CollectionStore.getTweetCollection()
+    };
+  },
+
+  componentDidMount () {
+    CollectionStore.addChangeListener(this.onCollectionChange);
+  },
+
+  componentWillUnmount () {
+    CollectionStore.removeChangeListener(this.onCollectionChange);
+  },
+
+  onCollectionChange () {
+    this.setState({
+      tweetCollection: CollectionStore.getTweetCollection()
+    });
+  },
+
   createHTML () {
     // Create HTML tweet list
     const htmlString = ReactDOMServer.renderToStaticMarkup(
-      <TweetList tweets={this.props.tweets} />
+      <TweetList tweets={this.state.tweetCollection} />
     );
 
     const htmlMarkup = {
@@ -25,36 +48,22 @@ export default React.createClass({
     return JSON.stringify(htmlMarkup);
   },
 
-  getTweetIDs () {
-    // Returns all tweet IDs
-    return Object.keys(this.props.tweets);
-  },
-
-  getNumberOfTweets () {
-    // Returns count of tweets
-    return this.getTweetIDs().length;
-  },
-
   render () {
-    const numberOfTweets = this.getNumberOfTweets();
+    const tweetCollection = this.state.tweetCollection;
+    const numberOfTweets = _.getNumberOfTweets(tweetCollection);
 
     // If we have tweets saved, render them
     if (numberOfTweets > 0) {
-      const tweets = this.props.tweets;
       const htmlMarkup = this.createHTML();
-      const removeAllTweets = this.props.onRemoveAllTweets;
-      const handleRemoveTweet = this.props.onRemoveTweet;
 
       return (
         <div>
           <CollectionControls
             numberOfTweets={numberOfTweets}
-            htmlMarkup={htmlMarkup}
-            onRemoveAllTweets={removeAllTweets} />
+            htmlMarkup={htmlMarkup} />
 
           <TweetList
-            tweets={tweets}
-            onRemoveTweet={handleRemoveTweet} />
+            tweets={tweetCollection} />
         </div>
       );
     }

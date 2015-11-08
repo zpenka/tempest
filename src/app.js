@@ -16,4 +16,4 @@ apiClient.initializeTweetStream();
 const el = document.getElementById('tempest');
 
 // Mount react to the document
-// ReactDOM.render(<Tempest />, el);
+ReactDOM.render(<Tempest />, el);
