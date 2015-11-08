@@ -28,12 +28,7 @@ cd ..
 gulp
 ```
 
-#### IV: Run Snapkite Engine
+#### IV: Run Snapkite Engine and Open App
 ```
 npm start
-```
-
-#### V: Open App
-```
-google-chrome ./build/index.html
 ```

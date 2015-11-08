@@ -4,7 +4,7 @@
   "description": "Live Image Stream for Tweets",
   "main": "src/app.js",
   "scripts": {
-    "start": "node snapkite-engine/app.js",
+    "start": "open ./build/index.html && node snapkite-engine/app.js",
     "test": "jest"
   },
   "repository": {
