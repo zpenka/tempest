@@ -38,7 +38,7 @@ export default {
       tweetID: tweetID
     };
 
-    dispathcer.dispatch(action);
+    dispatcher.dispatch(action);
   },
 
   removeAllTweetsFromCollection () {
@@ -47,7 +47,7 @@ export default {
       type: 'REMOVE_ALL_TWEETS_FROM_COLLECTION'
     };
 
-    dispathcer.dispatch(action);
+    dispatcher.dispatch(action);
   },
 
   setCollectionName (collectionName) {

@@ -36,7 +36,7 @@ export default React.createClass({
 
     const collectionName = this.state.inputValue;
     actions.setCollectionName(collectionName);
-    this.props.onChangeCollectionName(collectionName);
+    this.props.onCancelCollectionNameChange();
   },
 
   handleFormCancel (event) {

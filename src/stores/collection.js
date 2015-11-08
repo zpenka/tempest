@@ -64,7 +64,7 @@ CollectionStore.dispatcherID = dispatcher.register((action) => {
       break;
 
     case 'REMOVE_TWEET_FROM_COLLECTION':
-      removeTweetFromCollection(action.tweet);
+      removeTweetFromCollection(action.tweetID);
       emitChange();
       break;
 

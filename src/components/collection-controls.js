@@ -10,7 +10,7 @@ import Header from './header';
 import Button from './button';
 import CollectionRenameForm from './collection-rename-form';
 import CollectionExportForm from './collection-export-form';
-import action from '../actions/actions';
+import actions from '../actions/actions';
 import CollectionStore from '../stores/collection';
 
 export default React.createClass({

@@ -21,7 +21,7 @@ function emitChange () {
 }
 
 // Public
-const TweetStore = assign({}, EventEmitter.protype, {
+const TweetStore = assign({}, EventEmitter.prototype, {
 
   getTweet () {
     return tweet;
@@ -41,8 +41,8 @@ const TweetStore = assign({}, EventEmitter.protype, {
 TweetStore.dispatcherID = dispatcher.register((action) => {
   switch (action.type) {
     case 'receive_tweet' :
-      TweetStore.setTweet(action.tweet);
-      TweetStore.emitChange();
+      setTweet(action.tweet);
+      emitChange();
       break;
   }
 });

@@ -6,10 +6,16 @@
 //
 
 import React from 'react';
+import actions from '../actions/actions';
 import Header from './header';
 import Tweet from './tweet';
 
 export default React.createClass({
+
+  addTweetToCollection (tweet) {
+    actions.addTweetToCollection(tweet);
+  },
+
   getInitialState () {
     return {
       numberOfCharactersIsIncreasing: null,
@@ -74,7 +80,7 @@ export default React.createClass({
         <Header text={this.state.headerText} />
         <Tweet
           tweet={this.props.tweet}
-          onImageClick={this.props.onAddTweet} />
+          onImageClick={this.addTweetToCollection} />
       </article>
     );
   }
