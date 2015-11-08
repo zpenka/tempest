@@ -15,6 +15,9 @@ git clone https://github.com/zpenka/tempest.git
 ```
 cd tempest
 npm install
+cd snapkite-engine
+npm install
+cd ..
 ```
 
 #### III: Build
