@@ -11,11 +11,12 @@ import actions from '../actions/actions';
 import Header from './header';
 import Button from './button';
 import postcss from '../postcss';
+import CollectionStore from '../stores/collection';
 
 export default React.createClass({
   getInitialState () {
     return {
-      inputValue: this.props.name
+      inputValue: CollectionStore.getCollectionName()
     };
   },
 
@@ -34,13 +35,14 @@ export default React.createClass({
     event.preventDefault();
 
     const collectionName = this.state.inputValue;
+    actions.setCollectionName(collectionName);
     this.props.onChangeCollectionName(collectionName);
   },
 
   handleFormCancel (event) {
     event.preventDefault();
 
-    const collectionName = this.props.name;
+    const collectionName = CollectionStore.getCollectionName();
     this.setInputValue(collectionName);
     this.props.onCancelCollectionNameChange();
   },
