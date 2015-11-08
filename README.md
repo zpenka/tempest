@@ -28,7 +28,7 @@ cd ..
 gulp
 ```
 
-#### IV: Run Server
+#### IV: Run Snapkite Engine
 ```
 npm start
 ```
