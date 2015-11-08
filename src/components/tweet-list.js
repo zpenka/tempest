@@ -1,22 +1,28 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
 import React from 'react';
+import actions from '../actions/actions';
 import Tweet from './tweet';
 import postcss from '../postcss';
 
 export default React.createClass({
+
+  removeTweetFromCollection (tweet) {
+    actions.removeTweetFromCollection(tweet.id);
+  },
+
   getTweetIDs () {
     return Object.keys(this.props.tweets);
   },
 
   getTweetElement (tweetID) {
     const tweet = this.props.tweets[tweetID];
-    const handleRemoveTweet = this.props.onRemoveTweet;
+    const handleRemoveTweet = this.removeTweetFromCollection;
     let tweetEl = null;
     const styles = postcss({
       li: {

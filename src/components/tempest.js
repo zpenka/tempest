@@ -1,7 +1,7 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
@@ -12,42 +12,6 @@ import {assign} from 'lodash';
 import postcss from '../postcss'
 
 export default React.createClass({
-  getInitialState () {
-    return {
-      collection: {}
-    };
-  },
-
-  addTweet (tweet) {
-    let collection = this.state.collection;
-
-    // Add tweet to collection
-    collection[tweet.id] = tweet;
-
-    // Update state
-    this.setState({
-      collection: collection
-    });
-  },
-
-  removeTweet (tweet) {
-    let collection = this.state.collection;
-
-    // Remove tweet from collection
-    delete collection[tweet.id];
-
-    // Update state
-    this.setState({
-      collection: collection
-    });
-  },
-
-  removeAllTweets () {
-    // Update state
-    this.setState({
-      collection: {}
-    });
-  },
 
   render () {
     const styles = postcss({
@@ -79,13 +43,10 @@ export default React.createClass({
     return (
       <main style={styles.main}>
         <aside style={styles.aside}>
-          <Stream onAddTweet={this.addTweet} />
+          <Stream />
         </aside>
         <section style={styles.section}>
-          <Collection
-            tweets={this.state.collection}
-            onRemoveTweet={this.removeTweet}
-            onRemoveAllTweets={this.removeAllTweets} />
+          <Collection />
         </section>
       </main>
     );

@@ -1,33 +1,33 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
 import React from 'react';
-import SnapkiteClient from 'snapkite-stream-client';
 import StreamTweet from './stream-tweet';
 import Header from './header';
+import TweetStore from '../stores/tweet';
 
 export default React.createClass({
   getInitialState () {
     return {
-      tweet: null
+      tweet: TweetStore.getTweet()
     }
   },
 
   componentDidMount () {
-    SnapkiteClient.initializeStream(this.handleNewTweet);
+    TweetStore.addChangeListener(this.onTweetChange);
   },
 
   componentWillUnmount () {
-    SnapkiteClient.destroyStream();
+    TweetStore.removeChangeListener(this.onTweetChange);
   },
 
-  handleNewTweet (tweet) {
+  onTweetChange () {
     this.setState({
-      tweet: tweet
+      tweet: TweetStore.getTweet()
     });
   },
 
@@ -38,9 +38,7 @@ export default React.createClass({
     // If there is a tweet, stream it in
     if (tweet) {
       return (
-        <StreamTweet
-          tweet={tweet}
-          onAddTweet={this.props.onAddTweet} />
+        <StreamTweet tweet={tweet} />
       );
     }
 

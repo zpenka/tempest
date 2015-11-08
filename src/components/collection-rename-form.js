@@ -1,20 +1,22 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import actions from '../actions/actions';
 import Header from './header';
 import Button from './button';
 import postcss from '../postcss';
+import CollectionStore from '../stores/collection';
 
 export default React.createClass({
   getInitialState () {
     return {
-      inputValue: this.props.name
+      inputValue: CollectionStore.getCollectionName()
     };
   },
 
@@ -33,13 +35,14 @@ export default React.createClass({
     event.preventDefault();
 
     const collectionName = this.state.inputValue;
-    this.props.onChangeCollectionName(collectionName);
+    actions.setCollectionName(collectionName);
+    this.props.onCancelCollectionNameChange();
   },
 
   handleFormCancel (event) {
     event.preventDefault();
 
-    const collectionName = this.props.name;
+    const collectionName = CollectionStore.getCollectionName();
     this.setInputValue(collectionName);
     this.props.onCancelCollectionNameChange();
   },

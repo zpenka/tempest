@@ -1,7 +1,7 @@
 {
   "name": "tempest",
-  "version": "0.0.1",
-  "description": "Live Image Filter for Tweets",
+  "version": "1.0.1",
+  "description": "Live Image Stream for Tweets",
   "main": "src/app.js",
   "scripts": {
     "test": "jest"

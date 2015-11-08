@@ -1,7 +1,7 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
@@ -10,11 +10,12 @@ import Header from './header';
 import Button from './button';
 import CollectionRenameForm from './collection-rename-form';
 import CollectionExportForm from './collection-export-form';
+import actions from '../actions/actions';
+import CollectionStore from '../stores/collection';
 
 export default React.createClass({
   getInitialState () {
     return {
-      name: 'new',
       isEditingName: false
     };
   },
@@ -22,6 +23,7 @@ export default React.createClass({
   getHeaderText () {
     const numberOfTweets = this.props.numberOfTweets;
     let text = numberOfTweets;
+    const name = CollectionStore.getCollectionName();
 
     if (numberOfTweets === 1) {
       text = `${text} tweet in your`;
@@ -31,7 +33,7 @@ export default React.createClass({
 
     return (
       <span>
-        {text} <strong>{this.state.name}</strong> collection
+        {text} <strong>{name}</strong> collection
       </span>
     );
   },
@@ -42,19 +44,14 @@ export default React.createClass({
     });
   },
 
-  setCollectionName (name) {
-    this.setState({
-      name: name,
-      isEditingName: false
-    });
+  removeAllTweets () {
+    actions.removeAllTweetsFromCollection();
   },
 
   render () {
     if (this.state.isEditingName) {
       return (
         <CollectionRenameForm
-          name={this.state.name}
-          onChangeCollectionName={this.setCollectionName}
           onCancelCollectionNameChange={this.toggleEditCollectionName} />
       );
     }
@@ -69,7 +66,7 @@ export default React.createClass({
 
         <Button
           label="Empty Collection"
-          handleClick={this.props.onRemoveAllTweets} />
+          handleClick={this.removeAllTweets} />
 
         <CollectionExportForm htmlMarkup={this.props.htmlMarkup} />
       </div>

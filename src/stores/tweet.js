@@ -1,7 +1,7 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
@@ -21,7 +21,7 @@ function emitChange () {
 }
 
 // Public
-const TweetStore = assign({}, EventEmitter.protype, {
+const TweetStore = assign({}, EventEmitter.prototype, {
 
   getTweet () {
     return tweet;
@@ -41,8 +41,8 @@ const TweetStore = assign({}, EventEmitter.protype, {
 TweetStore.dispatcherID = dispatcher.register((action) => {
   switch (action.type) {
     case 'receive_tweet' :
-      TweetStore.setTweet(action.tweet);
-      TweetStore.emitChange();
+      setTweet(action.tweet);
+      emitChange();
       break;
   }
 });

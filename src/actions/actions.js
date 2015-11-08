@@ -1,21 +1,63 @@
 'use strict';
 
 // Tempest Live Image Filter
-// @version 0.0.1
+// @version 1.0.1
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
-import Dispatcher from '../dispatcher/dispatcher';
+import dispatcher from '../dispatcher/dispatcher';
 
-function receiveTweet(tweet) {
-  const action = {
-    type: 'receive_tweet',
-    tweet: tweet
+export default {
+
+  // Tweets
+  receiveTweet(tweet) {
+
+    const action = {
+      type: 'receive_tweet',
+      tweet: tweet
+    };
+
+    dispatcher.dispatch(action);
   },
 
-  Dispatcher.dispatch(action);
-}
+  // Collections
+  addTweetToCollection (tweet) {
 
-module.exports = {
-  receiveTweet: receiveTweet
+    const action = {
+      type: 'ADD_TWEET_TO_COLLECTION',
+      tweet: tweet
+    };
+
+    dispatcher.dispatch(action);
+  },
+
+  removeTweetFromCollection (tweetID) {
+
+    const action = {
+      type: 'REMOVE_TWEET_FROM_COLLECTION',
+      tweetID: tweetID
+    };
+
+    dispatcher.dispatch(action);
+  },
+
+  removeAllTweetsFromCollection () {
+
+    const action = {
+      type: 'REMOVE_ALL_TWEETS_FROM_COLLECTION'
+    };
+
+    dispatcher.dispatch(action);
+  },
+
+  setCollectionName (collectionName) {
+
+    const action = {
+      type: 'SET_COLLECTION_NAME',
+      collectionName: collectionName
+    };
+
+    dispatcher.dispatch(action);
+  }
+
 };
