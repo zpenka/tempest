@@ -6,17 +6,23 @@
 //
 
 import React from 'react';
+import actions from '../actions/actions';
 import Tweet from './tweet';
 import postcss from '../postcss';
 
 export default React.createClass({
+
+  removeTweetFromCollection (tweet) {
+    actions.removeTweetFromCollection(tweet.id);
+  },
+
   getTweetIDs () {
     return Object.keys(this.props.tweets);
   },
 
   getTweetElement (tweetID) {
     const tweet = this.props.tweets[tweetID];
-    const handleRemoveTweet = this.props.onRemoveTweet;
+    const handleRemoveTweet = this.removeTweetFromCollection;
     let tweetEl = null;
     const styles = postcss({
       li: {
