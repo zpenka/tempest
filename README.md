@@ -7,7 +7,9 @@ Enhancements/Improvements by Zack Penka
 
 ## install
 #### I: Clone
-`git clone git@github.com:zpenka/tempest.git`
+```
+git clone git@github.com:zpenka/tempest.git
+```
 
 #### II: Install
 ```
@@ -16,10 +18,16 @@ npm install
 ```
 
 #### III: Build
-`gulp`
+```
+gulp
+```
 
 #### IV: Run Server
-`npm start`
+```
+npm start
+```
 
 #### V: Open App
-`google-chrome ./build/index.html`
+```
+google-chrome ./build/index.html
+```
