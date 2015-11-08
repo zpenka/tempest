@@ -1,3 +1,4 @@
 node_modules
 build/tempest.js
 build/tempest.min.js
+snapkite-engine/node_modules
