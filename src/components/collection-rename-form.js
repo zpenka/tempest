@@ -7,6 +7,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import actions from '../actions/actions';
 import Header from './header';
 import Button from './button';
 import postcss from '../postcss';
