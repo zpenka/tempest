@@ -10,8 +10,10 @@ Enhancements/Improvements by Zack Penka
 `git clone git@github.com:zpenka/tempest.git`
 
 #### II: Install
-`cd tempest`
-`npm install`
+```
+cd tempest
+npm install
+```
 
 #### III: Build
 `gulp`
