@@ -5,17 +5,18 @@
 // @author Zack Penka (following React.js Essentials, Artemij Fedosejev)
 //
 
-import Dispatcher from '../dispatcher/dispatcher';
+import dispatcher from '../dispatcher/dispatcher';
 
-function receiveTweet(tweet) {
-  const action = {
-    type: 'receive_tweet',
-    tweet: tweet
-  },
+export default {
+  receiveTweet(tweet) {
 
-  Dispatcher.dispatch(action);
-}
+    console.log("Dispatching tweet");
 
-module.exports = {
-  receiveTweet: receiveTweet
+    const action = {
+      type: 'receive_tweet',
+      tweet: tweet
+    };
+
+    dispatcher.dispatch(action);
+  }
 };

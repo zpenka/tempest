@@ -8,9 +8,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tempest from './components/tempest';
+import apiClient from './utils/api-client';
+
+apiClient.initializeTweetStream();
 
 // Get mount point
 const el = document.getElementById('tempest');
 
 // Mount react to the document
-ReactDOM.render(<Tempest />, el);
+// ReactDOM.render(<Tempest />, el);
