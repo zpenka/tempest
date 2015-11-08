@@ -1,0 +1,10 @@
+{
+  "filter": {
+    "on": true
+  },
+  "content": {
+    "with": true,
+    "without": false,
+    "validate": {}
+  }
+}

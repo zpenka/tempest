@@ -1,0 +1,29 @@
+{
+  "name": "snapkite-engine",
+  "version": "0.1.2",
+  "description": "Filter mobile photos posted on Twitter.",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snapkite/snapkite-engine.git"
+  },
+  "keywords": [
+    "snapkite",
+    "streaming",
+    "tweet"
+  ],
+  "author": "Artemij Fedosejev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snapkite/snapkite-engine/issues"
+  },
+  "homepage": "https://github.com/snapkite/snapkite-engine",
+  "dependencies": {
+    "mongoose": "^3.8.22",
+    "node-tweet-stream": "^1.6.0",
+    "socket.io": "^1.3.2"
+  }
+}
