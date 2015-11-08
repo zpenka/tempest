@@ -8,9 +8,9 @@
 import dispatcher from '../dispatcher/dispatcher';
 
 export default {
-  receiveTweet(tweet) {
 
-    console.log("Dispatching tweet");
+  // Tweets
+  receiveTweet(tweet) {
 
     const action = {
       type: 'receive_tweet',
@@ -18,5 +18,46 @@ export default {
     };
 
     dispatcher.dispatch(action);
+  },
+
+  // Collections
+  addTweetToCollection (tweet) {
+
+    const action = {
+      type: 'ADD_TWEET_TO_COLLECTION',
+      tweet: tweet
+    };
+
+    dispatcher.dispatch(action);
+  },
+
+  removeTweetFromCollection (tweetID) {
+
+    const action = {
+      type: 'REMOVE_TWEET_FROM_COLLECTION',
+      tweetID: tweetID
+    };
+
+    dispathcer.dispatch(action);
+  },
+
+  removeAllTweetsFromCollection () {
+
+    const action = {
+      type: 'REMOVE_ALL_TWEETS_FROM_COLLECTION'
+    };
+
+    dispathcer.dispatch(action);
+  },
+
+  setCollectionName (collectionName) {
+
+    const action = {
+      type: 'SET_COLLECTION_NAME',
+      collectionName: collectionName
+    };
+
+    dispatcher.dispatch(action);
   }
+
 };
