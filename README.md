@@ -8,7 +8,7 @@ Enhancements/Improvements by Zack Penka
 ## install
 #### I: Clone
 ```
-git clone git@github.com:zpenka/tempest.git
+git clone https://github.com/zpenka/tempest.git
 ```
 
 #### II: Install
